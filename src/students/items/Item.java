@@ -39,6 +39,23 @@ public class Item {
 		}
 	}
 	
+	// Returns true or false based on a number of conditions. It checks if it is equal to the object parameter, if it is an instance of item, and compares the values to return true or false
+	public boolean equals(Object obj) {
+		if(this == obj) {
+			return true;
+		} else if(!(obj instanceof Item)) {
+			return false;
+		}
+		
+		Item other = (Item) obj;
+		
+		return age == other.age &&
+				maturationAge == other.maturationAge &&
+				deathAge == other.deathAge &&
+				monetaryValue == other.monetaryValue;
+				
+	}
+	
 	
 	
 }
