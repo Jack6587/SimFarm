@@ -1,7 +1,7 @@
 package students.items;
 
 public class Item {
-	public int age, maturationAge, deathAge, monetaryValue;
+	private int age, maturationAge, deathAge, monetaryValue;
 	
 	public Item(int maturationAge, int deathAge, int monetaryValue) {
 		this.age = 0;
@@ -16,9 +16,18 @@ public class Item {
 	
 	public void setAge(int ageValue) {
 		this.age = ageValue;
+	}
 		
 	public boolean died() {
 		return age > deathAge;
+	}
+	
+	public int getValue() {
+		if(age > maturationAge && this instanceof Food) {
+			return(monetaryValue);
+		} else {
+			return 0;
+		}
 	}
 	
 }
