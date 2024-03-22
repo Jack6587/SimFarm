@@ -1,6 +1,6 @@
 package students.items;
 
-public class Item {
+public abstract class Item {
 	private int age, maturationAge, deathAge, monetaryValue;
 	
 	// Constructor - age is set separately but initially = 0
@@ -55,6 +55,8 @@ public class Item {
 				monetaryValue == other.monetaryValue;
 				
 	}
+	
+	public abstract String toString();
 	
 	
 	
