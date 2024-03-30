@@ -13,9 +13,17 @@ public class Field {
 		field = new Item[height][width];
 	
 		// Initialised a nested for loop to iterate over height and width of the field to add an instance of Soil to each
-		for(int i = 0; i < field.length; i++) {
-			for(int j = 0; j < field[j].length; i++) {
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < height; i++) {
 				field[i][j] = new Soil();
+			}
+		}
+	}
+	
+	public void tick() {
+		for(int i = 0; i < field.length; i++) {
+			for(int j = 0; j < field[i].length; j++) {
+				field[i][j].tick();
 			}
 		}
 	}
