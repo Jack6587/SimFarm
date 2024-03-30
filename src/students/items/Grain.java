@@ -16,7 +16,7 @@ public class Grain extends Food {
 	
 	// Returns a lower or uppercase "G" depending on whether it is mature or not
 	public String toString() {
-		if(Grain.age < maturationAge) {
+		if(age < maturationAge) {
 			return "g";
 		} else {
 			return "G";

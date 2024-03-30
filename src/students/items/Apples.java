@@ -13,7 +13,7 @@ public class Apples extends Food {
 	}
 	
 	public String toString() {
-		if(Apples.age < maturationAge) {
+		if(age < maturationAge) {
 			return "a";
 		} else {
 			return "A";

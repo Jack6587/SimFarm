@@ -1,7 +1,10 @@
 package students.items;
 
 public abstract class Item {
-	private int age, maturationAge, deathAge, monetaryValue;
+	public int age;
+	private int maturationAge;
+	private int deathAge;
+	private int monetaryValue;
 	
 	// Constructor - age is set separately but initially = 0
 	public Item(int maturationAge, int deathAge, int monetaryValue) {
@@ -13,7 +16,7 @@ public abstract class Item {
 	
 	// Increments the age by 1
 	public void tick() {
-		age ++;
+		age++;
 	}
 	
 	// Sets the age of the instance of Item to the parameter ageValue

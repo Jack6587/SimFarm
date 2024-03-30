@@ -1,10 +1,13 @@
 package students;
 
+import students.items.Item;
 
 public class Field {
 	
-	public Field(int height, int width)
-	{
+	private Item[][] field;
+	
+	public Field(int height, int width) {
+		
 	}
 	
 }
