@@ -2,6 +2,7 @@ package students;
 
 import students.items.Item;
 import students.items.Soil;
+import students.items.Weed;
 
 public class Field {
 	
@@ -27,7 +28,12 @@ public class Field {
 	public void tick() {
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
+				Item currentItem = field[i][j];
 				field[i][j].tick();
+				
+				if(currentItem instanceof Soil && Math.random() <= 0.2) {
+					field[i][j] = new Weed();
+				}
 			}
 		}
 	}
@@ -39,11 +45,14 @@ public class Field {
 		for(int j = 0; j < width; j++) {
 			fieldOutput.append(j + " ");
 		}
+		fieldOutput.append("\n");
 		
-		for(int i = 0; i < height; i++) {
+		for(int i = 1; i <= height; i++) {
+			fieldOutput.append(i + " ");
 			for(int j = 0; j < width; j++) {
 				fieldOutput.append(field[i][j] + " ");
 			}
+			fieldOutput.append("\n");
 		}
 		
 		return fieldOutput.toString();
