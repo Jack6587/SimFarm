@@ -45,14 +45,24 @@ public class Field {
 	}
 	
 	public String toString() {
+		 //Creates a StringBuilder to create a more efficient/faster/better representation of the string.
 		StringBuilder fieldOutput = new StringBuilder();
 		
+		// Creates first space (in top left corner of field)
 		fieldOutput.append(" ");
+		// For loop that iterates over width and appends current number to the string
 		for(int j = 0; j < width; j++) {
 			fieldOutput.append(j + " ");
 		}
+		// Creates a line break to start with field grid
 		fieldOutput.append("\n");
 		
+		/*
+		 * Nested for loop. First, handles the number of the row.
+		 * Then, it adds the current field item (initially all soil objects)
+		 * to the grid. Note that all string additions have a " " for readability
+		 * and adherence to specifications
+		 */
 		for(int i = 1; i <= height; i++) {
 			fieldOutput.append(i + " ");
 			for(int j = 0; j < width; j++) {
@@ -61,7 +71,21 @@ public class Field {
 			fieldOutput.append("\n");
 		}
 		
+		// Returns the field output
 		return fieldOutput.toString();
+	}
+	
+	/* 
+	 * Takes the current location in the field (as seen by height and width)
+	 * and "tills" it with a new Soil object
+	 */
+	public void till(int height, int width) {
+		field[height][width] = new Soil();
+	}
+	
+	public Item get(int height, int width) {
+		Item originalItem = field[height][width];
+		return new Item(originalItem);
 	}
 	
 }
