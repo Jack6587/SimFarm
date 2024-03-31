@@ -6,7 +6,9 @@ import students.items.Weed;
 
 public class Field {
 	
-	// Instance variable - 2D array "field" of type Item
+	/* Instance variables - 2D array "field" of type Item
+	 * Height and width used for representing the rows and columns respectively
+	 */
 	private int height;
 	private int width;
 	private Item[][] field;
@@ -25,12 +27,16 @@ public class Field {
 		}
 	}
 	
+	// Functionality to increase the age by 1 for all items
 	public void tick() {
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
 				Item currentItem = field[i][j];
 				field[i][j].tick();
 				
+				/* Here, a new instance of Weed can be created when the "currentItem" 
+				 * is Soil and it meets the 20% criteria. Math.random() (on a spectrum of 0.0-1.0) is used 
+				*/
 				if(currentItem instanceof Soil && Math.random() <= 0.2) {
 					field[i][j] = new Weed();
 				}
