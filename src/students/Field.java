@@ -83,9 +83,38 @@ public class Field {
 		field[height][width] = new Soil();
 	}
 	
+	// Returns a copy of the item at specified field position
 	public Item get(int height, int width) {
 		Item originalItem = field[height][width];
 		return new Item(originalItem);
+	}
+	
+	// Stores item (as passed in parameter) to the Field position
+	public void plant(int height, int width, Item item) {
+		field[height][width] = item;
+	}
+	
+	/*
+	 *  Returns the value of all items in the field as a total.
+	 *  It uses a nested for loop to iterate over the 2D array,
+	 *  and calls on the getValue() method specified in the Item class,
+	 *  adding that value to a new variable called totalValue
+	 */
+	public int getValue() {
+		int totalValue = 0;
+		
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++) {
+				totalValue += field[i][j].getValue();
+			}
+		}
+		
+		return totalValue;
+		
+	}
+	
+	public String getSummary() {
+		
 	}
 	
 }
