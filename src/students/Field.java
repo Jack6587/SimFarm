@@ -1,8 +1,6 @@
 package students;
 
-import students.items.Item;
-import students.items.Soil;
-import students.items.Weed;
+import students.items.*;
 
 public class Field {
 	
