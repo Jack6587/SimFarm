@@ -33,12 +33,8 @@ public abstract class Item {
 	}
 	
 	// Returns string representation for whether an item has died or not
-	public String died() {
-		if(age > deathAge) {
-			return("This item has died...");
-		} else {
-			return("This item is alive!");
-		}
+	public boolean died() {
+		return age > deathAge;
 	}
 	
 	// Returns an integer, either value or 0, based on whether Item has reached maturation age or not. Must be an instance of Food class

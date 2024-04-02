@@ -38,6 +38,9 @@ public class Field {
 				if(currentItem instanceof Soil && Math.random() <= 0.2) {
 					field[i][j] = new Weed();
 				}
+				if(field[i][j].died()) {
+					field[i][j] = new UntilledSoil();
+				}
 			}
 		}
 	}
