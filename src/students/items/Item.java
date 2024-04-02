@@ -39,7 +39,7 @@ public abstract class Item {
 	
 	// Returns an integer, either value or 0, based on whether Item has reached maturation age or not. Must be an instance of Food class
 	public int getValue() {
-		if(age > maturationAge && this instanceof Food) {
+		if(age >= maturationAge && this instanceof Food) {
 			return(monetaryValue);
 		} else {
 			return 0;

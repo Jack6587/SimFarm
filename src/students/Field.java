@@ -87,7 +87,9 @@ public class Field {
 	// Returns a copy of the item at specified field position
 	public Item get(int height, int width) {
 		Item originalItem = field[height][width];
-		return new Item(originalItem);
+		Item copiedItem = new Item(originalItem);
+		
+		return copiedItem;
 	}
 	
 	// Stores item (as passed in parameter) to the Field position
@@ -114,8 +116,56 @@ public class Field {
 		
 	}
 	
+	/*
+	 * This method returns a string summary of the values of the field. It is aligned and appended through a StringBuilder
+	 * to create a readable approach (both in code and output) to the summary method.
+	 */
 	public String getSummary() {
+		StringBuilder fieldSummary = new StringBuilder();
 		
+		// These variables are used to count the number of each Item
+		int totalApples = 0;
+		int totalGrain = 0;
+		int totalSoil = 0;
+		int totalUntilled = 0;
+		int totalWeed = 0;
+		int totalValue = 0;
+		
+		// For loop iterates over 2D array of Items in Field
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++) {
+				Item currItem = field[i][j];
+				
+				// Counts each item time and adds it to respective counter
+				if(currItem instanceof Apples) {
+					totalApples++;
+				} else if(currItem instanceof Grain) {
+					totalGrain++;
+				} else if(currItem instanceof Soil) {
+					totalSoil++;
+				} else if(currItem instanceof UntilledSoil) {
+					totalUntilled++;
+				} else if(currItem instanceof Weed) {
+					totalWeed++;
+				}
+			}
+			
+		}
+		
+		// Gets the total value to be used in the string
+		totalValue = getValue();
+
+		fieldSummary.append("Apples:        ").append(totalApples).append("\n");
+		fieldSummary.append("Grain:         ").append(totalGrain).append("\n");
+		fieldSummary.append("Soil:          ").append(totalSoil).append("\n");
+		fieldSummary.append("Untilled:      ").append(totalUntilled).append("\n");
+		fieldSummary.append("Weed:          ").append(totalWeed).append("\n");
+		fieldSummary.append("For a total of ").append(totalValue).append("\n");
+		fieldSummary.append("Total apples created: ").append(Apples.getGenerationCount()).append("\n");
+		fieldSummary.append("Total grain created:  ").append(Grain.getGenerationCount()).append("\n");
+		
+		// Uses the StringBuilder's toString() method to return a regular string representation, as expected by the method
+		return fieldSummary.toString();
 	}
 	
 }
