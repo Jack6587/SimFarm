@@ -14,14 +14,6 @@ public abstract class Item {
 		this.monetaryValue = monetaryValue;
 	}
 	
-	// Copy constuctor for the Item class - used for the get method in Field class
-	public Item(Item original) {
-		this.age = original.age;
-		this.maturationAge = original.maturationAge;
-		this.deathAge = original.deathAge;
-		this.monetaryValue = original.monetaryValue;
-	}
-	
 	// Increments the age by 1
 	public void tick() {
 		age++;

@@ -14,6 +14,11 @@ public class Grain extends Food {
 		generationCount++;
 	}
 	
+	// Copy constructor for the get() method in Field
+	public Grain(Grain original) {
+		super(Grain.maturationAge, Grain.deathAge, Grain.monetaryValue);
+	}
+	
 	// Returns a lower or uppercase "G" depending on whether it is mature or not
 	public String toString() {
 		if(age < maturationAge) {

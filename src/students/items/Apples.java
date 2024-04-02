@@ -12,6 +12,11 @@ public class Apples extends Food {
 		generationCount++;
 	}
 	
+	// Copy constructor for the get() method in Field
+	public Apples(Apples original) {
+		super(Apples.maturationAge, Apples.deathAge, Apples.monetaryValue);
+	}
+	
 	public String toString() {
 		if(age < maturationAge) {
 			return "a";

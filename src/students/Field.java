@@ -87,9 +87,9 @@ public class Field {
 	// Returns a copy of the item at specified field position
 	public Item get(int height, int width) {
 		Item originalItem = field[height][width];
-		Item copiedItem = new Item(originalItem);
-		
-		return copiedItem;
+		Grain originalGrain = (Grain) originalItem;
+        return new Grain(originalGrain);
+
 	}
 	
 	// Stores item (as passed in parameter) to the Field position
