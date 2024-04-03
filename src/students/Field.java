@@ -19,7 +19,7 @@ public class Field {
 	
 		// Initialised a nested for loop to iterate over height and width of the field to add an instance of Soil to each
 		for(int i = 0; i < height; i++) {
-			for(int j = 0; j < height; j++) {
+			for(int j = 0; j < width; j++) {
 				field[i][j] = new Soil();
 			}
 		}
@@ -89,18 +89,23 @@ public class Field {
 		Item position = field[height][width];
 		if(position instanceof Grain) {
 			Grain copyItem = new Grain((Grain) position);
+			copyItem.setAge(position.age);
 			return copyItem;
 		} else if(position instanceof Apples) {
 			Apples copyItem = new Apples((Apples) position);
+			copyItem.setAge(position.age);
 			return copyItem;
 		} else if(position instanceof Soil) {
 			Soil copyItem = new Soil((Soil) position);
+			copyItem.setAge(position.age);
 			return copyItem;
 		} else if(position instanceof UntilledSoil) {
 			UntilledSoil copyItem = new UntilledSoil((UntilledSoil) position);
+			copyItem.setAge(position.age);
 			return copyItem;
 		} else if(position instanceof Weed) {
 			Weed copyItem = new Weed((Weed) position);
+			copyItem.setAge(position.age);
 			return copyItem;
 		} 
 		

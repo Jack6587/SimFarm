@@ -18,7 +18,7 @@ public class Farm {
 		
 		while(run) {
 			System.out.println(field.toString());
-			System.out.println("Bank balance: $" + startingFunds);
+			System.out.println("Bank balance: $" + startingFunds + "\n");
 			System.out.println("Enter your next action:");
 			System.out.println("t x y: till");
 			System.out.println("h x y: harvest");
