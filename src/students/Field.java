@@ -64,7 +64,7 @@ public class Field {
 		 * to the grid. Note that all string additions have a " " for readability
 		 * and adherence to specifications
 		 */
-		for(int i = 1; i <= height; i++) {
+		for(int i = 0; i < height; i++) {
 			fieldOutput.append(i + " ");
 			for(int j = 0; j < width; j++) {
 				fieldOutput.append(field[i][j] + " ");
