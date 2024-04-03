@@ -7,6 +7,10 @@ public class Weed extends Item {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, -1);
 	}
 	
+	public Weed(Weed original) {
+		super(Integer.MAX_VALUE, Integer.MAX_VALUE, -1);
+	}
+	
 	// String representation: /
 	public String toString() {
 		return "#";

@@ -86,10 +86,26 @@ public class Field {
 	
 	// Returns a copy of the item at specified field position
 	public Item get(int height, int width) {
-		Item originalItem = field[height][width];
-		Grain originalGrain = (Grain) originalItem;
-        return new Grain(originalGrain);
-
+		Item position = field[height][width];
+		if(position instanceof Grain) {
+			Grain copyItem = new Grain((Grain) position);
+			return copyItem;
+		} else if(position instanceof Apples) {
+			Apples copyItem = new Apples((Apples) position);
+			return copyItem;
+		} else if(position instanceof Soil) {
+			Soil copyItem = new Soil((Soil) position);
+			return copyItem;
+		} else if(position instanceof UntilledSoil) {
+			UntilledSoil copyItem = new UntilledSoil((UntilledSoil) position);
+			return copyItem;
+		} else if(position instanceof Weed) {
+			Weed copyItem = new Weed((Weed) position);
+			return copyItem;
+		} 
+		
+		// Case handling for when no valid Item is found
+		throw new IllegalArgumentException("No valid Item found at current position");
 	}
 	
 	// Stores item (as passed in parameter) to the Field position
