@@ -50,10 +50,10 @@ public class Field {
 		StringBuilder fieldOutput = new StringBuilder();
 		
 		// Creates first space (in top left corner of field)
-		fieldOutput.append(" ");
+		fieldOutput.append("   ");
 		// For loop that iterates over width and appends current number to the string
-		for(int j = 0; j < width; j++) {
-			fieldOutput.append(j + " ");
+		for(int j = 1; j <= width; j++) {
+			fieldOutput.append(j).append(" ");
 		}
 		// Creates a line break to start with field grid
 		fieldOutput.append("\n");
@@ -65,7 +65,15 @@ public class Field {
 		 * and adherence to specifications
 		 */
 		for(int i = 0; i < height; i++) {
-			fieldOutput.append(i + " ");
+			/*
+			 * This if statement helps align the field.
+			 * It adds an extra space in front of every row that isn't double digits,
+			 * meaning that 10(+) won't push every unit in the field to the right
+			 */
+			if(i + 1 < 10) {
+				fieldOutput.append(" ");
+			}
+			fieldOutput.append(i + 1).append(" ");
 			for(int j = 0; j < width; j++) {
 				fieldOutput.append(field[i][j] + " ");
 			}
@@ -86,7 +94,13 @@ public class Field {
 	
 	// Returns a copy of the item at specified field position
 	public Item get(int height, int width) {
+		// Dedicates a variable to represent the field position, for readability
 		Item position = field[height][width];
+		
+		/*
+		 *  If statements in the case of each type of Item. Sets an age that correlates with the original age for comparison purposes
+		 */
+		
 		if(position instanceof Grain) {
 			Grain copyItem = new Grain((Grain) position);
 			copyItem.setAge(position.age);
