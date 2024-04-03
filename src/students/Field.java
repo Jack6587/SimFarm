@@ -190,6 +190,7 @@ public class Field {
 		// Gets the total value to be used in the string
 		totalValue = getValue();
 
+		fieldSummary.append("\n");
 		fieldSummary.append("Apples:        ").append(totalApples).append("\n");
 		fieldSummary.append("Grain:         ").append(totalGrain).append("\n");
 		fieldSummary.append("Soil:          ").append(totalSoil).append("\n");
