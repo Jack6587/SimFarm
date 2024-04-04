@@ -48,6 +48,7 @@ public class Farm {
 				int y = Integer.parseInt(characters[2]) - 1;
 				
 				field.till(x, y);
+				field.tick();
 				
 			}
 			
@@ -58,6 +59,7 @@ public class Farm {
 				Item harvestItem = field.get(x, y);
 				startingFunds += harvestItem.getValue();
 				field.plant(x, y, new Soil());
+				field.tick();
 			}
 			
 			if(characters[0].equals("p")) {
@@ -78,7 +80,7 @@ public class Farm {
 					}
 					
 				} else if(plant.equals("g")) {
-					if(startingFunds > 2) {
+					if(startingFunds >= 2) {
 						startingFunds -= 2;
 						Item plantGrain = new Grain();
 						field.plant(x, y, plantGrain);
@@ -88,9 +90,7 @@ public class Farm {
 				} else {
 					System.out.println("Invalid input item type.");
 				}
-				
 			}
-			field.tick();
 		}
 		s.close();
 

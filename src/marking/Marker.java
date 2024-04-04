@@ -26,14 +26,14 @@ public class Marker {
 //		System.out.println(a.died()); // should print true
 //		Food testFood = a; //this should be possible
 //		Item testItem = testFood; //this should be possible
-////
-////		System.out.println(new Weed()); // should print "#"
-////		System.out.println(new UntilledSoil()); // should print "/"
-////
-////		// Section TWO
-////		// uncomment this section once you get to it
-////		
-////		
+//
+//		System.out.println(new Weed()); // should print "#"
+//		System.out.println(new UntilledSoil()); // should print "/"
+//
+//		Section TWO
+//		uncomment this section once you get to it
+//		
+//		
 //		Field testField = new Field(5, 5);
 //		System.out.println(testField.get(3, 3)); //should print "."
 //		System.out.println(testField); //should print the field
@@ -64,14 +64,14 @@ public class Marker {
 //		testField.tick();
 //		System.out.println(testField);
 
-		
 
 
-		
+
+
 		// Section THREE
 		// uncomment this section once you get to it
 		//remember, your farm should work on varies size fields (assuming all fields are less than 10x10)
-		Farm f = new Farm(10, 5, 10);
+		Farm f = new Farm(10, 10, 10);
 		f.run();
 		
 	}
