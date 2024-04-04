@@ -29,7 +29,9 @@ public abstract class Item {
 		return age > deathAge;
 	}
 	
-	// Returns an integer, either value or 0, based on whether Item has reached maturation age or not. Must be an instance of Food class
+	/* Returns an integer, either value or 0, based on whether Item has reached maturation age or not.
+	 * Must be an instance of Food class
+	 */
 	public int getValue() {
 		if(age >= maturationAge && this instanceof Food) {
 			return(monetaryValue);
@@ -38,7 +40,11 @@ public abstract class Item {
 		}
 	}
 	
-	// Returns true or false based on a number of conditions. It checks if it is equal to the object parameter, if it is an instance of item, and compares the values to return true or false
+	/*
+	 *  Returns true or false based on a number of conditions. 
+	 *  It checks if it is equal to the object parameter, if it is an instance of item,
+	 *  and compares the values to return true or false
+	 */
 	public boolean equals(Object obj) {
 		if(this == obj) {
 			return true;

@@ -5,7 +5,7 @@ import students.items.*;
 
 public class Farm {
 	
-	private final int startingFunds;
+	private int startingFunds;
 	private Field field;
 
 	public Farm(int fieldWidth, int fieldHeight, int startingFunds) {
@@ -56,6 +56,8 @@ public class Farm {
 				int y = Integer.parseInt(characters[2]);
 				
 				Item harvestItem = field.get(x, y);
+				startingFunds += harvestItem.getValue();
+				field.plant(x, y, new Soil());
 			}
 			
 			if(characters[0].equals("p")) {
