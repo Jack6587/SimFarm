@@ -36,15 +36,15 @@ public class Farm {
 					run = false;
 				}
 				
-				if(input.equals("w")) {
+				else if(input.equals("w")) {
 					field.tick();
 				}
 				
-				if(input.equals("s")) {
+				else if(input.equals("s")) {
 					System.out.println(field.getSummary());
 				}
 				
-				if(characters[0].equals("t")) {
+				else if(characters[0].equals("t")) {
 					int x = Integer.parseInt(characters[1]) - 1;
 					int y = Integer.parseInt(characters[2]) - 1;
 					
@@ -53,7 +53,7 @@ public class Farm {
 					
 				}
 				
-				if(characters[0].equals("h")) {
+				else if(characters[0].equals("h")) {
 					int x = Integer.parseInt(characters[1]) - 1;
 					int y = Integer.parseInt(characters[2]) - 1;
 					
@@ -63,7 +63,7 @@ public class Farm {
 					field.tick();
 				}
 				
-				if(characters[0].equals("p")) {
+				else if(characters[0].equals("p")) {
 					int x = Integer.parseInt(characters[1]) - 1;
 					int y = Integer.parseInt(characters[2]) - 1;
 					
