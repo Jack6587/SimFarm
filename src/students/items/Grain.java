@@ -33,4 +33,5 @@ public class Grain extends Food {
 		return generationCount;
 	}
 	
+	
 }

@@ -52,8 +52,8 @@ public class Field {
 		// Creates first space (in top left corner of field)
 		fieldOutput.append("   ");
 		// For loop that iterates over width and appends current number to the string
-		for(int j = 1; j <= width; j++) {
-			fieldOutput.append(j).append(" ");
+		for(int j = 0; j < width; j++) {
+			fieldOutput.append(j + 1).append(" ");
 		}
 		// Creates a line break to start with field grid
 		fieldOutput.append("\n");
@@ -70,7 +70,7 @@ public class Field {
 			 * It adds an extra space in front of every row that isn't double digits,
 			 * meaning that 10(+) won't push every unit in the field to the right
 			 */
-			if(i + 1 < 10) {
+			if(i < 9) {
 				fieldOutput.append(" ");
 			}
 			fieldOutput.append(i + 1).append(" ");
@@ -196,7 +196,7 @@ public class Field {
 		fieldSummary.append("Soil:          ").append(totalSoil).append("\n");
 		fieldSummary.append("Untilled:      ").append(totalUntilled).append("\n");
 		fieldSummary.append("Weed:          ").append(totalWeed).append("\n");
-		fieldSummary.append("For a total of ").append(totalValue).append("\n");
+		fieldSummary.append("For a total of $").append(totalValue).append("\n");
 		fieldSummary.append("Total apples created: ").append(Apples.getGenerationCount()).append("\n");
 		fieldSummary.append("Total grain created:  ").append(Grain.getGenerationCount()).append("\n");
 		

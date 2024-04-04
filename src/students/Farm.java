@@ -44,16 +44,16 @@ public class Farm {
 			}
 			
 			if(characters[0].equals("t")) {
-				int x = Integer.parseInt(characters[1]);
-				int y = Integer.parseInt(characters[2]);
+				int x = Integer.parseInt(characters[1]) - 1;
+				int y = Integer.parseInt(characters[2]) - 1;
 				
 				field.till(x, y);
 				
 			}
 			
 			if(characters[0].equals("h")) {
-				int x = Integer.parseInt(characters[1]);
-				int y = Integer.parseInt(characters[2]);
+				int x = Integer.parseInt(characters[1]) - 1;
+				int y = Integer.parseInt(characters[2]) - 1;
 				
 				Item harvestItem = field.get(x, y);
 				startingFunds += harvestItem.getValue();
@@ -61,33 +61,40 @@ public class Farm {
 			}
 			
 			if(characters[0].equals("p")) {
-				int x = Integer.parseInt(characters[1]);
-				int y = Integer.parseInt(characters[2]);
+				int x = Integer.parseInt(characters[1]) - 1;
+				int y = Integer.parseInt(characters[2]) - 1;
 				
 				System.out.println("Enter: \n" + "'a' to buy an apple for $3 \n" + "'g' to buy grain for $2\n");
 				
 				String plant = s.nextLine();
 				
 				if(plant.equals("a")) {
-					if(startingFunds > Apples.monetaryValue) {
-						field.plant(x, y, new Apples());
+					if(startingFunds >= 3) {
+						startingFunds -= 3;
+						Item plantApple = new Apples();
+						field.plant(x, y, plantApple);
 					} else {
-						System.out.println("Sorry, not enough funds to buy an apple.");
+						System.out.println("Not enough funds to buy an apple.");
 					}
+					
 				} else if(plant.equals("g")) {
-					if(startingFunds > Grain.monetaryValue) {
-						field.plant(x, y, new Grain());
+					if(startingFunds > 2) {
+						startingFunds -= 2;
+						Item plantGrain = new Grain();
+						field.plant(x, y, plantGrain);
 					} else {
-						System.out.println("Sorry, not enough funds to buy grain.");
+						System.out.println("Not enough funds to buy grain.");
 					}
+				} else {
+					System.out.println("Invalid input item type.");
 				}
 				
 			}
-			
 			field.tick();
 		}
-		
 		s.close();
+
+		}
+		
 	}
-	
-}
+
