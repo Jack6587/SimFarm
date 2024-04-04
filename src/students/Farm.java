@@ -31,6 +31,9 @@ public class Farm {
 			
 				String input = s.nextLine();
 				String[] characters = input.split(" ");
+				
+				int x = Integer.parseInt(characters[1]) - 1;
+				int y = Integer.parseInt(characters[2]) - 1;
 			
 				if(input.equals("q")){
 					run = false;
@@ -45,18 +48,12 @@ public class Farm {
 				}
 				
 				else if(characters[0].equals("t")) {
-					int x = Integer.parseInt(characters[1]) - 1;
-					int y = Integer.parseInt(characters[2]) - 1;
-					
 					field.till(x, y);
 					field.tick();
 					
 				}
 				
-				else if(characters[0].equals("h")) {
-					int x = Integer.parseInt(characters[1]) - 1;
-					int y = Integer.parseInt(characters[2]) - 1;
-					
+				else if(characters[0].equals("h")) {				
 					Item harvestItem = field.get(x, y);
 					startingFunds += harvestItem.getValue();
 					field.plant(x, y, new Soil());
@@ -64,33 +61,36 @@ public class Farm {
 				}
 				
 				else if(characters[0].equals("p")) {
-					int x = Integer.parseInt(characters[1]) - 1;
-					int y = Integer.parseInt(characters[2]) - 1;
-					
-					System.out.println("Enter: \n" + "'a' to buy an apple for $3 \n" + "'g' to buy grain for $2\n");
-					
-					String plant = s.nextLine();
-					
-					if(plant.equals("a")) {
-						if(startingFunds >= 3) {
-							startingFunds -= 3;
-							Item plantApple = new Apples();
-							field.plant(x, y, plantApple);
-						} else {
-							System.out.println("Not enough funds to buy an apple.");
-						}
-						
-					} else if(plant.equals("g")) {
-						if(startingFunds >= 2) {
-							startingFunds -= 2;
-							Item plantGrain = new Grain();
-							field.plant(x, y, plantGrain);
-						} else {
-							System.out.println("Not enough funds to buy grain.");
-						}
+					Item currentItem = field.get(x, y);
+					if(currentItem != null && currentItem instanceof Apples || currentItem instanceof Grain) {
+						System.out.println("An item already exists at this position.");
 					} else {
-						System.out.println("Invalid input item type.");
+						System.out.println("Enter: \n" + "'a' to buy an apple for $3 \n" + "'g' to buy grain for $2\n");
+						
+						String plant = s.nextLine();
+						
+						if(plant.equals("a")) {
+							if(startingFunds >= 3) {
+								startingFunds -= 3;
+								Item plantApple = new Apples();
+								field.plant(x, y, plantApple);
+							} else {
+								System.out.println("Not enough funds to buy an apple.");
+							}
+							
+						} else if(plant.equals("g")) {
+							if(startingFunds >= 2) {
+								startingFunds -= 2;
+								Item plantGrain = new Grain();
+								field.plant(x, y, plantGrain);
+							} else {
+								System.out.println("Not enough funds to buy grain.");
+							}
+						} else {
+							System.out.println("Invalid input item type.");
+						}
 					}
+					
 				} else {
 					throw new IllegalArgumentException("Invalid command");
 				}
