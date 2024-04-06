@@ -17,6 +17,7 @@ public class Apples extends Food {
 		super(Apples.maturationAge, Apples.deathAge, Apples.monetaryValue);
 	}
 	
+	// Returns a string representation "a" or "A" based on maturationAge
 	public String toString() {
 		if(age < maturationAge) {
 			return "a";

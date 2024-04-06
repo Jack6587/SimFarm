@@ -10,7 +10,7 @@ public class UntilledSoil extends Item {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, -1);
 	}
 
-	// String representation: /
+	// This is always represented as: /
 	public String toString() {
 		return "/";
 	}

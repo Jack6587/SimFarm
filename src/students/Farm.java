@@ -20,6 +20,7 @@ public class Farm {
 		boolean run = true;
 		
 		while(run) {
+			// This while loop has exception handling to avoid program crashing. First, it tries this loop
 			try {
 				// String representation of the field and input options for each loop
 				System.out.println(field.toString());
@@ -68,7 +69,7 @@ public class Farm {
 				
 				/*
 				 * User chooses to harvest at a specified position. It gets the value of the item,
-				 * adds it to the "startingFunds" value and replaces it with a Soil object.
+				 * adds it to the "startingFunds" value and replaces it with a Soil object. This action progresses time
 				 */
 				else if(characters[0].equals("h")) {
 					int x = Integer.parseInt(characters[1]) - 1;
@@ -89,14 +90,24 @@ public class Farm {
 					int x = Integer.parseInt(characters[1]) - 1;
 					int y = Integer.parseInt(characters[2]) - 1;
 					
+					/*
+					 * This if statement checks to make sure no item exists at the current position.
+					 * Otherwise, it continues with normal procedures
+					 */
 					Item currentItem = field.get(x, y);
 					if(currentItem != null && currentItem instanceof Apples || currentItem instanceof Grain) {
 						System.out.println("An item already exists at this position.");
 					} else {
+						// String representation + takes input
 						System.out.println("Enter: \n" + "'a' to buy an apple for $2 \n" + "'g' to buy grain for $1\n");
 						
 						String plant = s.nextLine();
 						
+						/*
+						 * In the scenario that User picks Apple we:
+						 * Check if the funds are available. If they are, extract the cost of the Apple item.
+						 * Then, create a new instance of Apple, and use the plant() function to place it at position x, y
+						 */
 						if(plant.equals("a")) {
 							if(startingFunds >= 3) {
 								startingFunds -= 2;
@@ -105,7 +116,7 @@ public class Farm {
 							} else {
 								System.out.println("Not enough funds to buy an apple.");
 							}
-							
+						// Same process occurs for Grain: we check for necessary funds, and a plant a new Grain item
 						} else if(plant.equals("g")) {
 							if(startingFunds >= 2) {
 								startingFunds -= 1;
@@ -114,6 +125,7 @@ public class Farm {
 							} else {
 								System.out.println("Not enough funds to buy grain.");
 							}
+						// Validate input	
 						} else {
 							System.out.println("Invalid input item type.");
 						}
@@ -123,18 +135,21 @@ public class Farm {
 					throw new IllegalArgumentException("Invalid command");
 				}
 			}
+			// Here, it catches when coordinate values are entered at the wrong position (for example: p  5 4 instead of p 5 4)
 			catch(NumberFormatException e) {
 				System.out.println("Invalid coordinates. Please enter valid integers at the correct positions. \n");
 			}
 			catch(IllegalArgumentException e) {
 				System.out.println("Invalid input: " + e.getMessage() + "\n");
 			}
+			// This is for all other exceptions
 			catch(Exception e) {
 				System.out.println("Error: " + e.getMessage() + "\n");
 			}
 			
 			
 		}
+		// Closes the input scanner
 		s.close();
 
 		}

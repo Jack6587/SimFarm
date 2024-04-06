@@ -11,7 +11,7 @@ public class Soil extends Item {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, 0);
 	}
 
-	// String representation: .
+	// This is always represented as: .
 	public String toString() {
 		return ".";
 	}

@@ -2,7 +2,10 @@ package students.items;
 
 public class Weed extends Item {
 	
-	// Constructor for Weed class - since maturation and death age are infinite, making them max values is logical and they are directly created through super
+	/*
+	 *  Constructor for Weed class - since maturation and death age are infinite,
+	 *  making them max values is logical and they are directly created through super
+	 */
 	public Weed() {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, -1);
 	}
@@ -11,7 +14,7 @@ public class Weed extends Item {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, -1);
 	}
 	
-	// String representation: /
+	// This is always represented as: #
 	public String toString() {
 		return "#";
 	}
