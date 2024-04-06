@@ -38,6 +38,14 @@ public class Field {
 				if(currentItem instanceof Soil && Math.random() <= 0.2) {
 					field[i][j] = new Weed();
 				}
+				
+				/*
+				 *  Currently, this if statement is acting as the crow - it effectively kills crops at a fairly high rate.
+				 */
+				if(currentItem instanceof Food && Math.random() <= 0.3){
+					field[i][j] = new UntilledSoil();
+					
+				}
 				if(field[i][j].died()) {
 					field[i][j] = new UntilledSoil();
 				}

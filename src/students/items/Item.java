@@ -60,7 +60,7 @@ public abstract class Item {
 				monetaryValue == other.monetaryValue;
 				
 	}
-	
+
 	public abstract String toString();
 	
 	

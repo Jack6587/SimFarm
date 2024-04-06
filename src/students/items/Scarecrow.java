@@ -8,17 +8,21 @@ public class Scarecrow extends Item {
 	private static final int monetaryCost = 4;
 	private static int generationCount = 0;
 	
+	// Constructor
 	public Scarecrow() {
 		super(age, deathAge, monetaryCost);
 		generationCount++;
 	}
 	
+	// String representation of scarecrow
 	public String toString() {
 		return "S";
 	}
 	
-	public int getMonetaryCost() {
-		return monetaryCost;
+	public void scare() {
+		while(age < deathAge) {
+			
+		}
 	}
 	
 }

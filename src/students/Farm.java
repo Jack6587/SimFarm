@@ -79,6 +79,7 @@ public class Farm {
 					Item harvestItem = field.get(x, y);
 					startingFunds += harvestItem.getValue();
 					field.plant(x, y, new Soil());
+					System.out.println("Item sold!");
 					field.tick();
 				}
 				
@@ -110,7 +111,7 @@ public class Farm {
 						 * Then, create a new instance of Apple, and use the plant() function to place it at position x, y
 						 */
 						if(plant.equals("a")) {
-							if(startingFunds >= 3) {
+							if(startingFunds >= 2) {
 								startingFunds -= 2;
 								Item plantApple = new Apples();
 								field.plant(x, y, plantApple);
@@ -119,7 +120,7 @@ public class Farm {
 							}
 						// Same process occurs for Grain: we check for necessary funds, and a plant a new Grain item
 						} else if(plant.equals("g")) {
-							if(startingFunds >= 2) {
+							if(startingFunds >= 1) {
 								startingFunds -= 1;
 								Item plantGrain = new Grain();
 								field.plant(x, y, plantGrain);
@@ -136,8 +137,11 @@ public class Farm {
 					int x = Integer.parseInt(characters[1]) - 1;
 					int y = Integer.parseInt(characters[2]) - 1;
 					
-					if(startingFunds > Scarecrow.getMonetaryCost()) {
-						
+					// Creates a new Scarecrow instance to place on the field and get rid of crows
+					if(startingFunds > 4) {
+						startingFunds -= 4;
+						Item buyScarecrow = new Scarecrow();
+						field.plant(x, y, buyScarecrow);
 					}
 				}
 				else {
