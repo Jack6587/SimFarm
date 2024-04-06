@@ -1,5 +1,7 @@
 package students.items;
 
+import students.Field;
+
 public abstract class Item {
 	public int age;
 	private int maturationAge;
@@ -59,6 +61,10 @@ public abstract class Item {
 				deathAge == other.deathAge &&
 				monetaryValue == other.monetaryValue;
 				
+	}
+	
+	public void placeScarecrow(Field field, int x, int y) {
+		pass;
 	}
 
 	public abstract String toString();

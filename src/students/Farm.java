@@ -93,13 +93,17 @@ public class Farm {
 					int y = Integer.parseInt(characters[2]) - 1;
 					
 					/*
-					 * This if statement checks to make sure no item exists at the current position.
+					 * This if statement checks to make sure no item exists at the current position,
+					 * and that the item is not untilled soil (items should be planted once the soil has been "prepared".
 					 * Otherwise, it continues with normal procedures
 					 */
 					Item currentItem = field.get(x, y);
 					if(currentItem != null && currentItem instanceof Apples || currentItem instanceof Grain) {
 						System.out.println("An item already exists at this position.");
-					} else {
+					} else if(currentItem != null && currentItem instanceof UntilledSoil) {
+						System.out.println("You must till this soil before planting!");
+					}
+					else {
 						// String representation + takes input
 						System.out.println("Enter: \n" + "'a' to buy an apple for $2 \n" + "'g' to buy grain for $1\n");
 						
@@ -137,11 +141,12 @@ public class Farm {
 					int x = Integer.parseInt(characters[1]) - 1;
 					int y = Integer.parseInt(characters[2]) - 1;
 					
-					// Creates a new Scarecrow instance to place on the field and get rid of crows
-					if(startingFunds > 4) {
-						startingFunds -= 4;
+					// Creates a new Scarecrow instance to place on the field and get rid of crows (costs $4)
+					if(startingFunds >= 8) {
+						startingFunds -= 8;
 						Item scarecrow = new Scarecrow();
 						scarecrow.placeScarecrow(field, x, y);
+						System.out.println("Scarecrow placed!");
 					}
 				}
 				else {

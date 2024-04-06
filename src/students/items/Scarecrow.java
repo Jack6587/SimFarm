@@ -4,10 +4,11 @@ import students.*;
 
 public class Scarecrow extends Item {
 	
-	public Scarecrow(String age) {
-		super(age);
+	public Scarecrow() {
+		super(Integer.MAX_VALUE, Integer.MAX_VALUE, 0);
 	}
 	
+	@Override
 	// String representation of scarecrow
 	public void placeScarecrow(Field field, int x, int y) {
 		field.plant(x, y, this);
