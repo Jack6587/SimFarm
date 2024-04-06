@@ -144,7 +144,7 @@ public class Farm {
 					// Creates a new Scarecrow instance to place on the field and get rid of crows (costs $4)
 					if(startingFunds >= 8) {
 						startingFunds -= 8;
-						Item scarecrow = new Scarecrow();
+						Scarecrow scarecrow = new Scarecrow();
 						scarecrow.placeScarecrow(field, x, y);
 						System.out.println("Scarecrow placed!");
 					}

@@ -8,7 +8,6 @@ public class Scarecrow extends Item {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, 0);
 	}
 	
-	@Override
 	// String representation of scarecrow
 	public void placeScarecrow(Field field, int x, int y) {
 		field.plant(x, y, this);

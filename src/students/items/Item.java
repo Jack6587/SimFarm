@@ -62,13 +62,7 @@ public abstract class Item {
 				monetaryValue == other.monetaryValue;
 				
 	}
-	
-	public void placeScarecrow(Field field, int x, int y) {
-		pass;
-	}
 
 	public abstract String toString();
-	
-	
 	
 }
