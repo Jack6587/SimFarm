@@ -42,7 +42,6 @@ public class Field {
 					field[i][j] = new UntilledSoil();
 				}
 			}
-			crow();
 		}
 	}
 	
@@ -208,14 +207,18 @@ public class Field {
 	
 	// Custom "crow" implementation where a crow eats your crop with a 30% chance
 	public void crow() {
+		int foodEaten = 0;
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
 				Item currentItem = field[i][j];
 				if(currentItem instanceof Food && Math.random() <= 0.3) {
 					field[i][j] = new UntilledSoil();
-					System.out.println("A crow ate your item!");
+					foodEaten++;
 				}
 			}
+		}
+		if(foodEaten > 0) {
+			System.out.println("A crow ate " + foodEaten + " of your crops!");
 		}
 	}
 	

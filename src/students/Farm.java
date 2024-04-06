@@ -47,9 +47,13 @@ public class Farm {
 					run = false;
 				}
 				
-				// User chooses to wait. This progresses the age forward once based on the tick() function
+				/*
+				 * User chooses to wait. This progresses the age forward once based on the tick() function.
+				 * The crow() function is called for crops to possibly be eaten
+				 */
 				else if(input.equals("w")) {
 					field.tick();
+					field.crow();
 				}
 				
 				// User chooses to get a summary. This outputs the summary String representation based on the getSummary() function
@@ -67,6 +71,7 @@ public class Farm {
 					int y = Integer.parseInt(characters[2]) - 1;
 					field.till(x, y);
 					field.tick();
+					field.crow();
 				}
 				
 				/*
@@ -82,6 +87,7 @@ public class Farm {
 					field.plant(x, y, new Soil());
 					System.out.println("Item sold!");
 					field.tick();
+					field.crow();
 				}
 				
 				/*
@@ -161,6 +167,7 @@ public class Farm {
 				else {
 					throw new IllegalArgumentException("Invalid command");
 				}
+				
 			}
 			// Here, it catches when coordinate values are entered at the wrong position (for example: p  5 4 instead of p 5 4)
 			catch(NumberFormatException e) {
