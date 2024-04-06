@@ -31,8 +31,8 @@ public class Field {
 			for(int j = 0; j < width; j++) {
 				Item currentItem = field[i][j];
 				field[i][j].tick();
-				
-				/* Here, a new instance of Weed can be created when the "currentItem" 
+				/* 
+				 * Here, a new instance of Weed can be created when the "currentItem" 
 				 * is Soil and it meets the 20% criteria. Math.random() (on a spectrum of 0.0-1.0) is used 
 				*/
 				if(currentItem instanceof Soil && Math.random() <= 0.2) {
