@@ -98,7 +98,8 @@ public class Field {
 		Item position = field[height][width];
 		
 		/*
-		 *  If statements in the case of each type of Item. Sets an age that correlates with the original age for comparison purposes
+		 *  If statements in the case of each type of Item. 
+		 *  Sets an age that correlates with the original age for comparison purposes
 		 */
 		
 		if(position instanceof Grain) {
@@ -124,7 +125,7 @@ public class Field {
 		} 
 		
 		// Case handling for when no valid Item is found
-		throw new IllegalArgumentException("No valid Item found at current position");
+		throw new IllegalArgumentException("No valid item found at current position");
 	}
 	
 	// Stores item (as passed in parameter) to the Field position
