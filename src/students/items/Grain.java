@@ -19,6 +19,7 @@ public class Grain extends Food {
 		super(Grain.maturationAge, Grain.deathAge, Grain.monetaryValue);
 	}
 	
+	@Override
 	// Returns a lower or uppercase "G" depending on whether it is mature or not
 	public String toString() {
 		if(age < maturationAge) {
@@ -32,6 +33,5 @@ public class Grain extends Food {
 	public static int getGenerationCount() {
 		return generationCount;
 	}
-	
 	
 }

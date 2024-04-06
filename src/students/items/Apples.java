@@ -17,6 +17,7 @@ public class Apples extends Food {
 		super(Apples.maturationAge, Apples.deathAge, Apples.monetaryValue);
 	}
 	
+	@Override
 	// Returns a string representation "a" or "A" based on maturationAge
 	public String toString() {
 		if(age < maturationAge) {
@@ -25,7 +26,8 @@ public class Apples extends Food {
 			return "A";
 		}
 	}
-	
+		
+		
 	public static int getGenerationCount() {
 		return generationCount;
 	}

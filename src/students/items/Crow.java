@@ -1,16 +1,17 @@
 package students.items;
 
+import students.Field;
+
 public class Crow {
-	public int age;
 	
 	// Crow constructor
-	public Crow(int age) {
-		this.age = age;
+	public Crow() {
+		
 	}
 	
-	// Designed to act as a method for getting rid of food
-	public static void eatFood(Item item) {
-		item = new UntilledSoil();
+	// Designed to act as a method for getting rid of food (makes it Untilled Soil)
+	public static void eatFood(Field field, int x, int y) {
+		field[x][y] = new UntilledSoil();
 	}
 	
 }

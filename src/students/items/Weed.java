@@ -13,11 +13,14 @@ public class Weed extends Item {
 	public Weed(Weed original) {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, -1);
 	}
-	
+
+	@Override
 	// This is always represented as: #
 	public String toString() {
 		return "#";
 	}
+	
+
 
 
 }

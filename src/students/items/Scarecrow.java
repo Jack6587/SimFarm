@@ -1,28 +1,25 @@
 package students.items;
 
+import students.*;
+
 public class Scarecrow extends Item {
 	
-	// Instance variables for Sscarecrow
-	private static final int age = 0;
-	private static final int deathAge = 6;
-	private static final int monetaryCost = 4;
-	private static int generationCount = 0;
-	
-	// Constructor
-	public Scarecrow() {
-		super(age, deathAge, monetaryCost);
-		generationCount++;
+	public Scarecrow(String age) {
+		super(age);
 	}
 	
 	// String representation of scarecrow
-	public String toString() {
-		return "S";
+	public void placeScarecrow(Field field, int x, int y) {
+		field.plant(x, y, this);
 	}
 	
-	public void scare() {
-		while(age < deathAge) {
-			
-		}
+	public void removeScarecrow(Field field, int x, int y) {
+		field.plant(x, y, new UntilledSoil());
+	}
+	
+	@Override
+	public String toString() {
+		return "S";
 	}
 	
 }
