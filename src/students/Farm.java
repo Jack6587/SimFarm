@@ -30,6 +30,7 @@ public class Farm {
 				System.out.println("h x y: harvest");
 				System.out.println("p x y: plant");
 				System.out.println("b x y: buy scarecrow");
+				System.out.println("r x y: remove scarecrow");
 				System.out.println("s: field summary");
 				System.out.println("w: wait");
 				System.out.println("q: quit \n");
@@ -147,6 +148,14 @@ public class Farm {
 						Scarecrow scarecrow = new Scarecrow();
 						scarecrow.placeScarecrow(field, x, y);
 						System.out.println("Scarecrow placed!");
+					}
+				} else if(characters[0].equals("r")) {
+					int x = Integer.parseInt(characters[1]) - 1;
+					int y = Integer.parseInt(characters[2]) - 1;
+
+					Item item = field.get(x,y);
+					if(item instanceof Scarecrow) {
+						((Scarecrow)item).removeScarecrow(field, x, y);
 					}
 				}
 				else {

@@ -15,6 +15,7 @@ public class Scarecrow extends Item {
 	
 	public void removeScarecrow(Field field, int x, int y) {
 		field.plant(x, y, new UntilledSoil());
+		System.out.println("The scarecrow has been removed.");
 	}
 	
 	@Override

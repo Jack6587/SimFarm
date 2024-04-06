@@ -38,18 +38,11 @@ public class Field {
 				if(currentItem instanceof Soil && Math.random() <= 0.2) {
 					field[i][j] = new Weed();
 				}
-				
-				/*
-				 *  Currently, this if statement is acting as the crow - it effectively kills crops at a fairly high rate.
-				 */
-				if(currentItem instanceof Food && Math.random() <= 0.3){
-					field[i][j] = new UntilledSoil();
-					
-				}
 				if(field[i][j].died()) {
 					field[i][j] = new UntilledSoil();
 				}
 			}
+			crow();
 		}
 	}
 	
@@ -211,6 +204,19 @@ public class Field {
 		
 		// Uses the StringBuilder's toString() method to return a regular string representation, as expected by the method
 		return fieldSummary.toString();
+	}
+	
+	// Custom "crow" implementation where a crow eats your crop with a 30% chance
+	public void crow() {
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++) {
+				Item currentItem = field[i][j];
+				if(currentItem instanceof Food && Math.random() <= 0.3) {
+					field[i][j] = new UntilledSoil();
+					System.out.println("A crow ate your item!");
+				}
+			}
+		}
 	}
 	
 }

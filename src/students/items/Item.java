@@ -1,7 +1,5 @@
 package students.items;
 
-import students.Field;
-
 public abstract class Item {
 	public int age;
 	private int maturationAge;
