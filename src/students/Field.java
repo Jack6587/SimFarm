@@ -217,9 +217,25 @@ public class Field {
 				}
 			}
 		}
+		// Output to display exactly what the crow eats each time, rather than just saying it ate something.
 		if(foodEaten > 0) {
 			System.out.println("A crow ate " + foodEaten + " of your crops!");
 		}
+	}
+	
+	/*
+	 * Checks for presence of scarecrow to impact crow eating likelihood. 
+	 * Uses a for loop to check if the field position is an instance of Scarecrow and returns true if so.
+	 */
+	public boolean scarecrowPresent() {
+		for(int i = 0; i < height; i++) {
+			for(int j = 0; j < width; j++) {
+				if(field[i][j] instanceof Scarecrow) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 	
 }
