@@ -52,8 +52,6 @@ public class Farm {
 				 * The crow() function is called for crops to possibly be eaten
 				 */
 				else if(input.equals("w")) {
-					field.tick();
-					field.crow();
 				}
 				
 				// User chooses to get a summary. This outputs the summary String representation based on the getSummary() function
@@ -67,11 +65,9 @@ public class Farm {
 				 * and uses the till(int,int) function.
 				 */
 				else if(characters[0].equals("t")) {
-					int x = Integer.parseInt(characters[1]) - 1;
-					int y = Integer.parseInt(characters[2]) - 1;
+					int y = Integer.parseInt(characters[1]) - 1;
+					int x = Integer.parseInt(characters[2]) - 1;
 					field.till(x, y);
-					field.tick();
-					field.crow();
 				}
 				
 				/*
@@ -79,15 +75,13 @@ public class Farm {
 				 * adds it to the "startingFunds" value and replaces it with a Soil object. This action progresses time
 				 */
 				else if(characters[0].equals("h")) {
-					int x = Integer.parseInt(characters[1]) - 1;
-					int y = Integer.parseInt(characters[2]) - 1;
+					int y = Integer.parseInt(characters[1]) - 1;
+					int x = Integer.parseInt(characters[2]) - 1;
 					
 					Item harvestItem = field.get(x, y);
 					startingFunds += harvestItem.getValue();
 					field.plant(x, y, new Soil());
 					System.out.println("Item sold!");
-					field.tick();
-					field.crow();
 				}
 				
 				/*
@@ -96,8 +90,8 @@ public class Farm {
 				 *  I understand that the assignment specifies that after each action, the field ages, so this could be wrong
 				 */
 				else if(characters[0].equals("p")) {
-					int x = Integer.parseInt(characters[1]) - 1;
-					int y = Integer.parseInt(characters[2]) - 1;
+					int y = Integer.parseInt(characters[1]) - 1;
+					int x = Integer.parseInt(characters[2]) - 1;
 					
 					/*
 					 * This if statement checks to make sure no item exists at the current position,
@@ -107,8 +101,8 @@ public class Farm {
 					Item currentItem = field.get(x, y);
 					if(currentItem != null && currentItem instanceof Apples || currentItem instanceof Grain) {
 						System.out.println("An item already exists at this position.");
-					} else if(currentItem != null && currentItem instanceof UntilledSoil) {
-						System.out.println("You must till this soil before planting!");
+					} else if(currentItem != null && currentItem instanceof UntilledSoil || currentItem instanceof Weed) {
+						System.out.println("You must till this " + currentItem.toString() + " before planting!");
 					}
 					else {
 						// String representation + takes input
@@ -145,8 +139,8 @@ public class Farm {
 					}
 					
 				} else if(characters[0].equals("b")) {
-					int x = Integer.parseInt(characters[1]) - 1;
-					int y = Integer.parseInt(characters[2]) - 1;
+					int y = Integer.parseInt(characters[1]) - 1;
+					int x = Integer.parseInt(characters[2]) - 1;
 					
 					// Creates a new Scarecrow instance to place on the field and get rid of crows (costs $4)
 					if(startingFunds >= 8) {
@@ -156,8 +150,8 @@ public class Farm {
 						System.out.println("Scarecrow placed!");
 					}
 				} else if(characters[0].equals("r")) {
-					int x = Integer.parseInt(characters[1]) - 1;
-					int y = Integer.parseInt(characters[2]) - 1;
+					int y = Integer.parseInt(characters[1]) - 1;
+					int x = Integer.parseInt(characters[2]) - 1;
 
 					Item item = field.get(x,y);
 					if(item instanceof Scarecrow) {
@@ -167,6 +161,9 @@ public class Farm {
 				else {
 					throw new IllegalArgumentException("Invalid command");
 				}
+			
+				field.tick();
+				field.crow();
 				
 			}
 			// Here, it catches when coordinate values are entered at the wrong position (for example: p  5 4 instead of p 5 4)
