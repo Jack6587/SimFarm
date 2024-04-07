@@ -253,9 +253,9 @@ public class Field {
 	}
 	
 	/*
-	 *  Custom "crow" implementation where a crow eats your crop with a 20% chance.
+	 *  Custom "crow" implementation where a crow eats your crop with a 25% chance of occurrence each time.
 	 *  Here, we have a crowProbability variable that changes depending on if a Scarecrow exists in the Field.
-	 *  If so, it decreases the chance of a crow eating crops by 15%. We then check the random number against the probability
+	 *  If so, it decreases the chance of a crow eating crops by 20%. We then check the random number against the probability
 	 *  to determine whether a crow eats the crop
 	 */
 	public void crow() {
@@ -265,7 +265,7 @@ public class Field {
 		if(scarecrowPresent) {
 			crowProbability = 0.05;
 		} else {
-			crowProbability = 0.2;
+			crowProbability = 0.25;
 		}
 		
 		int foodEaten = 0;
@@ -279,16 +279,17 @@ public class Field {
 			}
 		}
 		/*
-		 *  Output to display exactly what the crow eats each time, rather than just saying it ate something.
+		 *  Output to display exactly how much the crow eats each time, rather than just saying that it ate something.
 		 */
 		if(foodEaten > 0) {
 			System.out.println("A crow ate " + foodEaten + " of your crops!");
 		}
 	}
 	
-	/*
+	/**
 	 * Checks for presence of scarecrow to impact crow eating likelihood. 
 	 * Uses a for loop to check if the field position is an instance of Scarecrow and returns true if so.
+	 * @return true if field position is Scarecrow, false if not
 	 */
 	public boolean scarecrowPresent() {
 		for(int i = 0; i < height; i++) {
