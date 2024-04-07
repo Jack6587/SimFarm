@@ -3,11 +3,20 @@ package students;
 import java.util.Scanner;
 import students.items.*;
 
+/**
+ * Represents a farm. Contains a field and starting funds
+ */
 public class Farm {
 	
 	private int startingFunds;
 	private Field field;
 
+	/**
+	 * Farm constructor
+	 * @param fieldWidth width of the field
+	 * @param fieldHeight height of the field
+	 * @param startingFunds funds for the farm
+	 */
 	public Farm(int fieldWidth, int fieldHeight, int startingFunds) {
 		this.startingFunds = startingFunds;
 		this.field = new Field(fieldWidth, fieldHeight);
