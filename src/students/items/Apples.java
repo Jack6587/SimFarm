@@ -2,25 +2,26 @@ package students.items;
 
 public class Apples extends Food {
 	
-	private static final int maturationAge = 3;
-	private static final int deathAge = 5;
-	private static final int monetaryValue = 3;
+	// Constant variables for Apples
+	private static final int MATURATION_AGE = 3;
+	private static final int DEATH_AGE = 5;
+	private static final int MONETARY_VALUE = 3;
 	private static int generationCount = 0;
 	
 	public Apples() {
-		super(maturationAge, deathAge, monetaryValue);
+		super(MATURATION_AGE, DEATH_AGE, MONETARY_VALUE);
 		generationCount++;
 	}
 	
 	// Copy constructor for the get() method in Field
 	public Apples(Apples original) {
-		super(Apples.maturationAge, Apples.deathAge, Apples.monetaryValue);
+		super(Apples.MATURATION_AGE, Apples.DEATH_AGE, Apples.MONETARY_VALUE);
 	}
 	
 	@Override
 	// Returns a string representation "a" or "A" based on maturationAge
 	public String toString() {
-		if(age < maturationAge) {
+		if(age < MATURATION_AGE) {
 			return "a";
 		} else {
 			return "A";
