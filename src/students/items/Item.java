@@ -1,13 +1,19 @@
 package students.items;
 
+/**
+ * Item representation that can be placed in field
+ */
 public abstract class Item {
 	public int age;
 	private int maturationAge;
 	private int deathAge;
 	private int monetaryValue;
 	
-	/*
-	 *  Constructor - age is set separately but initially = 0
+	/**
+	 * Constructor for Item - age is set separately
+	 * @param maturationAge Age of maturity for selling an item
+	 * @param deathAge Age of death for an item
+	 * @param monetaryValue Value of item for selling
 	 */
 	public Item(int maturationAge, int deathAge, int monetaryValue) {
 		this.age = 0;
@@ -16,22 +22,24 @@ public abstract class Item {
 		this.monetaryValue = monetaryValue;
 	}
 	
-	/*
+	/**
 	 *  Increments the age by 1
 	 */
 	public void tick() {
 		age++;
 	}
 	
-	/*
-	 *  Sets the age of the instance of Item to the parameter ageValue
+	/**
+	 * Sets the age of the instance of Item to the parameter ageValue
+	 * @param ageValue The new age of the item
 	 */
 	public void setAge(int ageValue) {
 		this.age = ageValue;
 	}
 	
-	/*
-	 *  Returns string representation for whether an item has died or not
+	/**
+	 * Returns string representation for whether an item has died or not
+	 * @return True if item has died, false otherwise
 	 */
 	public boolean died() {
 		return age > deathAge;
@@ -48,10 +56,13 @@ public abstract class Item {
 		}
 	}
 	
-	/*
-	 *  Returns true or false based on a number of conditions. 
-	 *  It checks if it is equal to the object parameter, if it is an instance of item,
-	 *  and compares the values to return true or false
+	/**
+	 * Returns true or false based on a number of conditions. 
+	 * It checks if it is equal to the object parameter, if it is an instance of item,
+	 * and compares the values to return true or false
+	 * 
+	 * @param obj Object of comparison
+	 * @return True if equal, false if not
 	 */
 	public boolean equals(Object obj) {
 		if(this == obj) {
@@ -69,8 +80,8 @@ public abstract class Item {
 				
 	}
 
-	/*
-	 *  Abstract method to be used in all subclasses for String representation
+	/**
+	 * Abstract method to be used in all subclasses for String representation
 	 */
 	public abstract String toString();
 	

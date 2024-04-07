@@ -2,6 +2,9 @@ package students;
 
 import students.items.*;
 
+/**
+ * Represents the field where most methods occur
+ */
 public class Field {
 	
 	/* Instance variables - 2D array "field" of type Item
@@ -11,8 +14,12 @@ public class Field {
 	private int width;
 	private Item[][] field;
 	
+	/**
+	 * Field constructor
+	 * @param height Height of the field
+	 * @param width Width of the field.
+	 */
 	public Field(int height, int width) {
-		// Creates a new field instance
 		this.height = height;
 		this.width = width;
 		field = new Item[height][width];
@@ -49,6 +56,10 @@ public class Field {
 		}
 	}
 	
+	/**
+	 * Returns a string representation for field
+	 * @return String representation of field
+	 */
 	public String toString() {
 		 /*
 		  * Creates a StringBuilder to create a more efficient/faster/better representation of the string.
@@ -92,21 +103,24 @@ public class Field {
 			fieldOutput.append("\n");
 		}
 		
-		/*
-		 *  Returns the field output
-		 */
 		return fieldOutput.toString();
 	}
 	
-	/* 
+	/**
 	 * Takes the current location in the field (as seen by height and width)
 	 * and "tills" it with a new Soil object
+	 * @param height Height position
+	 * @param width Width position
 	 */
 	public void till(int height, int width) {
 		field[height][width] = new Soil();
 	}
 	
-	// Returns a copy of the item at specified field position
+	/**
+	 * Returns a copy of the item at specified field position
+	 * @param height Height position
+	 * @param width Width position
+	 */
 	public Item get(int height, int width) {
 		// Dedicates a variable to represent the field position, for readability
 		Item position = field[height][width];
@@ -148,14 +162,17 @@ public class Field {
 		throw new IllegalArgumentException("No valid item found at current position");
 	}
 	
-	/*
-	 *  Stores item (as passed in parameter) to the Field position
+	/**
+	 * Stores item (as passed in parameter) to the Field position
+	 * @param height Height position
+	 * @param width Width position
+	 * @param item Item being planted (can be any type of Item)
 	 */
 	public void plant(int height, int width, Item item) {
 		field[height][width] = item;
 	}
 	
-	/*
+	/**
 	 *  Returns the value of all items in the field as a total.
 	 *  It uses a nested for loop to iterate over the 2D array,
 	 *  and calls on the getValue() method specified in the Item class,
@@ -174,7 +191,7 @@ public class Field {
 		
 	}
 	
-	/*
+	/**
 	 * This method returns a string summary of the values of the field. It is aligned and appended through a StringBuilder
 	 * to create a readable approach (both in code and output) to the summary method.
 	 */

@@ -185,6 +185,7 @@ public class Farm {
 					Item item = field.get(x,y);
 					if(item instanceof Scarecrow) {
 						((Scarecrow)item).removeScarecrow(field, x, y);
+						startingFunds += 8;
 					}
 				}
 				else {
