@@ -93,7 +93,7 @@ public class Farm {
 					Item harvestItem = field.get(x, y);
 					startingFunds += harvestItem.getValue();
 					field.plant(x, y, new Soil());
-					System.out.println("Item sold!");
+					System.out.println("Sold '" + harvestItem.toString() + "' for " + harvestItem.getValue());
 				}
 				
 				/*
@@ -166,6 +166,8 @@ public class Farm {
 						Scarecrow scarecrow = new Scarecrow();
 						scarecrow.placeScarecrow(field, x, y);
 						System.out.println("Scarecrow placed!");
+					} else {
+						System.out.println("Not enough funds to buy a scarecrow.");
 					}
 				} else if(characters[0].equals("r")) {
 					int y = Integer.parseInt(characters[1]) - 1;

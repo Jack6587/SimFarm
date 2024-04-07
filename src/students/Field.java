@@ -17,7 +17,9 @@ public class Field {
 		this.width = width;
 		field = new Item[height][width];
 	
-		// Initialised a nested for loop to iterate over height and width of the field to add an instance of Soil to each
+		/*
+		 *  Initialised a nested for loop to iterate over height and width of the field to add an instance of Soil to each
+		 */
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
 				field[i][j] = new Soil();
@@ -25,7 +27,9 @@ public class Field {
 		}
 	}
 	
-	// Functionality to increase the age by 1 for all items
+	/*
+	 *  Functionality to increase the age by 1 for all items
+	 */
 	public void tick() {
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
@@ -46,16 +50,24 @@ public class Field {
 	}
 	
 	public String toString() {
-		 //Creates a StringBuilder to create a more efficient/faster/better representation of the string.
+		 /*
+		  * Creates a StringBuilder to create a more efficient/faster/better representation of the string.
+		  */
 		StringBuilder fieldOutput = new StringBuilder();
 		
-		// Creates first space (in top left corner of field)
+		/*
+		 *  Creates first space (in top left corner of field)
+		 */
 		fieldOutput.append("   ");
-		// For loop that iterates over width and appends current number to the string
+		/*
+		 *  For loop that iterates over width and appends current number to the string
+		 */
 		for(int j = 0; j < width; j++) {
 			fieldOutput.append(j + 1).append(" ");
 		}
-		// Creates a line break to start with field grid
+		/*
+		 *  Creates a line break to start with field grid
+		 */
 		fieldOutput.append("\n");
 		
 		/*
@@ -80,7 +92,9 @@ public class Field {
 			fieldOutput.append("\n");
 		}
 		
-		// Returns the field output
+		/*
+		 *  Returns the field output
+		 */
 		return fieldOutput.toString();
 	}
 	
@@ -128,11 +142,15 @@ public class Field {
 			return copyItem;
 		}
 		
-		// Case handling for when no valid Item is found
+		/*
+		 *  Case handling for when no valid Item is found
+		 */
 		throw new IllegalArgumentException("No valid item found at current position");
 	}
 	
-	// Stores item (as passed in parameter) to the Field position
+	/*
+	 *  Stores item (as passed in parameter) to the Field position
+	 */
 	public void plant(int height, int width, Item item) {
 		field[height][width] = item;
 	}
@@ -171,12 +189,16 @@ public class Field {
 		int totalWeed = 0;
 		int totalValue = 0;
 		
-		// For loop iterates over 2D array of Items in Field
+		/*
+		 *  For loop iterates over 2D array of Items in Field
+		 */
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
 				Item currItem = field[i][j];
 				
-				// Counts each item time and adds it to respective counter
+				/*
+				 *  Counts each item time and adds it to respective counter
+				 */
 				if(currItem instanceof Apples) {
 					totalApples++;
 				} else if(currItem instanceof Grain) {
@@ -192,7 +214,9 @@ public class Field {
 			
 		}
 		
-		// Gets the total value to be used in the string
+		/*
+		 *  Gets the total value to be used in the string
+		 */
 		totalValue = getValue();
 
 		fieldSummary.append("\n");
@@ -205,11 +229,18 @@ public class Field {
 		fieldSummary.append("Total apples created: ").append(Apples.getGenerationCount()).append("\n");
 		fieldSummary.append("Total grain created:  ").append(Grain.getGenerationCount()).append("\n");
 		
-		// Uses the StringBuilder's toString() method to return a regular string representation, as expected by the method
+		/*
+		 *  Uses the StringBuilder's toString() method to return a regular string representation, as expected by the method
+		 */
 		return fieldSummary.toString();
 	}
 	
-	// Custom "crow" implementation where a crow eats your crop with a 30% chance
+	/*
+	 *  Custom "crow" implementation where a crow eats your crop with a 20% chance.
+	 *  Here, we have a crowProbability variable that changes depending on if a Scarecrow exists in the Field.
+	 *  If so, it decreases the chance of a crow eating crops by 15%. We then check the random number against the probability
+	 *  to determine whether a crow eats the crop
+	 */
 	public void crow() {
 		boolean scarecrowPresent = scarecrowPresent();
 		double crowProbability;
@@ -230,7 +261,9 @@ public class Field {
 				}
 			}
 		}
-		// Output to display exactly what the crow eats each time, rather than just saying it ate something.
+		/*
+		 *  Output to display exactly what the crow eats each time, rather than just saying it ate something.
+		 */
 		if(foodEaten > 0) {
 			System.out.println("A crow ate " + foodEaten + " of your crops!");
 		}
