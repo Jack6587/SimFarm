@@ -8,6 +8,10 @@ public class Scarecrow extends Item {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, 0);
 	}
 	
+	public Scarecrow(Scarecrow original) {
+		super(Integer.MAX_VALUE, Integer.MAX_VALUE, -1);
+	}
+	
 	// String representation of scarecrow
 	public void placeScarecrow(Field field, int x, int y) {
 		field.plant(x, y, this);

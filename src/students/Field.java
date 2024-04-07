@@ -122,7 +122,11 @@ public class Field {
 			Weed copyItem = new Weed((Weed) position);
 			copyItem.setAge(position.age);
 			return copyItem;
-		} 
+		} else if(position instanceof Scarecrow) {
+			Scarecrow copyItem = new Scarecrow((Scarecrow) position);
+			copyItem.setAge(position.age);
+			return copyItem;
+		}
 		
 		// Case handling for when no valid Item is found
 		throw new IllegalArgumentException("No valid item found at current position");
