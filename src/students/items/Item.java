@@ -6,7 +6,9 @@ public abstract class Item {
 	private int deathAge;
 	private int monetaryValue;
 	
-	// Constructor - age is set separately but initially = 0
+	/*
+	 *  Constructor - age is set separately but initially = 0
+	 */
 	public Item(int maturationAge, int deathAge, int monetaryValue) {
 		this.age = 0;
 		this.maturationAge = maturationAge;
@@ -14,17 +16,23 @@ public abstract class Item {
 		this.monetaryValue = monetaryValue;
 	}
 	
-	// Increments the age by 1
+	/*
+	 *  Increments the age by 1
+	 */
 	public void tick() {
 		age++;
 	}
 	
-	// Sets the age of the instance of Item to the parameter ageValue
+	/*
+	 *  Sets the age of the instance of Item to the parameter ageValue
+	 */
 	public void setAge(int ageValue) {
 		this.age = ageValue;
 	}
 	
-	// Returns string representation for whether an item has died or not
+	/*
+	 *  Returns string representation for whether an item has died or not
+	 */
 	public boolean died() {
 		return age > deathAge;
 	}
@@ -61,6 +69,9 @@ public abstract class Item {
 				
 	}
 
+	/*
+	 *  Abstract method to be used in all subclasses for String representation
+	 */
 	public abstract String toString();
 	
 }

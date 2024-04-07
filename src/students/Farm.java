@@ -14,15 +14,23 @@ public class Farm {
 	}
 	
 	public void run() {
-		// Initialise new input
+		/*
+		 *  Initialise new input
+		 */
 		Scanner s = new Scanner(System.in);
-		// Boolean to continue or end the loop
+		/*
+		 *  Boolean to continue or end the loop
+		 */
 		boolean run = true;
 		
 		while(run) {
-			// This while loop has exception handling to avoid program crashing. First, it tries this loop
+			/*
+			 *  This while loop has exception handling to avoid program crashing. First, it tries this loop
+			 */
 			try {
-				// String representation of the field and input options for each loop
+				/*
+				 *  String representation of the field and input options for each loop
+				 */
 				System.out.println(field.toString());
 				System.out.println("Bank balance: $" + startingFunds + "\n");
 				System.out.println("Enter your next action:");
@@ -42,7 +50,9 @@ public class Farm {
 				 */
 				String[] characters = input.split(" ");
 			
-				// Quits the game by changing run to false
+				/*
+				 *  Quits the game by changing run to false
+				 */
 				if(input.equals("q")){
 					run = false;
 				}
@@ -54,7 +64,9 @@ public class Farm {
 				else if(input.equals("w")) {
 				}
 				
-				// User chooses to get a summary. This outputs the summary String representation based on the getSummary() function
+				/*
+				 *  User chooses to get a summary. This outputs the summary String representation based on the getSummary() function
+				 */
 				else if(input.equals("s")) {
 					System.out.println(field.getSummary());
 				}
@@ -85,9 +97,7 @@ public class Farm {
 				}
 				
 				/*
-				 *  Important to note: here I chose not to progress the age when planting as I felt
-				 *  it wouldn't make sense to age every time something plants. This is my own take on the function;
-				 *  I understand that the assignment specifies that after each action, the field ages, so this could be wrong
+				 *  This plants an Item at a specific position when the user enters "p".
 				 */
 				else if(characters[0].equals("p")) {
 					int y = Integer.parseInt(characters[1]) - 1;
@@ -95,7 +105,7 @@ public class Farm {
 					
 					/*
 					 * This if statement checks to make sure no item exists at the current position,
-					 * and that the item is not untilled soil (items should be planted once the soil has been "prepared".
+					 * and that the item is not untilled soil (items should be planted once the soil has been "prepared").
 					 * Otherwise, it continues with normal procedures
 					 */
 					Item currentItem = field.get(x, y);
@@ -105,7 +115,9 @@ public class Farm {
 						System.out.println("You must till this " + currentItem.toString() + " before planting!");
 					}
 					else {
-						// String representation + takes input
+						/*
+						 *  String representation + takes input
+						 */
 						System.out.println("Enter: \n" + "'a' to buy an apple for $2 \n" + "'g' to buy grain for $1\n");
 						
 						String plant = s.nextLine();
@@ -123,7 +135,9 @@ public class Farm {
 							} else {
 								System.out.println("Not enough funds to buy an apple.");
 							}
-						// Same process occurs for Grain: we check for necessary funds, and a plant a new Grain item
+						/*
+						 *  Same process occurs for Grain: we check for necessary funds, and a plant a new Grain item
+						 */
 						} else if(plant.equals("g")) {
 							if(startingFunds >= 1) {
 								startingFunds -= 1;
@@ -132,7 +146,9 @@ public class Farm {
 							} else {
 								System.out.println("Not enough funds to buy grain.");
 							}
-						// Validate input	
+						/*
+						 *  Validate input	
+						 */
 						} else {
 							System.out.println("Invalid input item type.");
 						}
@@ -142,7 +158,9 @@ public class Farm {
 					int y = Integer.parseInt(characters[1]) - 1;
 					int x = Integer.parseInt(characters[2]) - 1;
 					
-					// Creates a new Scarecrow instance to place on the field and get rid of crows (costs $4)
+					/*
+					 *  Creates a new Scarecrow instance to place on the field and get rid of crows (costs $4)
+					 */
 					if(startingFunds >= 8) {
 						startingFunds -= 8;
 						Scarecrow scarecrow = new Scarecrow();
@@ -166,21 +184,27 @@ public class Farm {
 				field.crow();
 				
 			}
-			// Here, it catches when coordinate values are entered at the wrong position (for example: p  5 4 instead of p 5 4)
+			/*
+			 *  Here, it catches when coordinate values are entered at the wrong position (for example: p  5 4 instead of p 5 4)
+			 */
 			catch(NumberFormatException e) {
 				System.out.println("Invalid coordinates. Please enter valid integers at the correct positions. \n");
 			}
 			catch(IllegalArgumentException e) {
 				System.out.println("Invalid input: " + e.getMessage() + "\n");
 			}
-			// This is for all other exceptions
+			/*
+			 *  This is for all other exceptions
+			 */
 			catch(Exception e) {
 				System.out.println("Error: " + e.getMessage() + "\n");
 			}
 			
 			
 		}
-		// Closes the input scanner
+		/*
+		 *  Closes the input scanner
+		 */
 		s.close();
 
 		}

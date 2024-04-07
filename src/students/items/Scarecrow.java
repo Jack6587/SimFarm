@@ -13,24 +13,32 @@ public class Scarecrow extends Item {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, 0);
 	}
 	
-	// Copy constructor for the get() method in Field class
+	/*
+	 *  Copy constructor for the get() method in Field class
+	 */
 	public Scarecrow(Scarecrow original) {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, -1);
 	}
 	
-	// Places scarecrow at given coordinates
+	/*
+	 *  Places scarecrow at given coordinates
+	 */
 	public void placeScarecrow(Field field, int x, int y) {
 		field.plant(x, y, this);
 	}
 	
-	// Replaces the scarecrow with Untilled Soil and an output message
+	/*
+	 *  Replaces the scarecrow with Untilled Soil and an output message
+	 */
 	public void removeScarecrow(Field field, int x, int y) {
 		field.plant(x, y, new UntilledSoil());
 		System.out.println("The scarecrow has been removed.");
 	}
 	
 	@Override
-	// String representation of scarecrow
+	/*
+	 *  String representation of scarecrow
+	 */
 	public String toString() {
 		return "S";
 	}

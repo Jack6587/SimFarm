@@ -11,7 +11,9 @@ public class UntilledSoil extends Item {
 	}
 
 	@Override
-	// This is always represented as: /
+	/*
+	 *  This is always represented as: /
+	 */
 	public String toString() {
 		return "/";
 	}

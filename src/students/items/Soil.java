@@ -6,13 +6,17 @@ public class Soil extends Item {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, 0);
 	}
 	
-	// Copy constructor for the get() method in Field
+	/*
+	 *  Copy constructor for the get() method in Field
+	 */
 	public Soil(Soil original) {
 		super(Integer.MAX_VALUE, Integer.MAX_VALUE, 0);
 	}
 
 	@Override
-	// This is always represented as: .
+	/*
+	 *  This is always represented as: .
+	 */
 	public String toString() {
 		return ".";
 	}
