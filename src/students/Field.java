@@ -213,7 +213,7 @@ public class Field {
 		if(scarecrowPresent) {
 			crowProbability = 0.05;
 		} else {
-			crowProbability = 0.7;
+			crowProbability = 0.2;
 		}
 		
 		int foodEaten = 0;
