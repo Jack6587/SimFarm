@@ -207,12 +207,13 @@ public class Field {
 	
 	// Custom "crow" implementation where a crow eats your crop with a 30% chance
 	public void crow() {
+		boolean scarecrowPresent = scarecrowPresent();
 		double crowProbability;
 		
-		if(scarecrowPresent() == true) {
-			crowProbability = 0.7;
-		} else {
+		if(scarecrowPresent) {
 			crowProbability = 0.05;
+		} else {
+			crowProbability = 0.7;
 		}
 		
 		int foodEaten = 0;
